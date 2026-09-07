@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habithub/Auth/Bloc/auth_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:habithub/Auth/user_Bloc/user_event.dart';
 import 'package:habithub/Utils/dialog_helper.dart';
 import 'package:habithub/views/Authentication_Module/Forgot_password_view.dart';
 import 'package:habithub/views/Authentication_Module/complete_profile_view.dart';
+import 'package:habithub/views/Authentication_Module/signup_view.dart';
 import 'package:habithub/views/Authentication_Module/verify_email_view.dart';
 import 'package:habithub/views/Authentication_Module/welcome_view.dart';
 import 'package:habithub/views/main_navigation_view.dart';
@@ -406,9 +408,9 @@ class _LoginViewState extends State<LoginView> {
                   const SizedBox(height: 45),
                   Center(
                     child: RichText(
-                      text: const TextSpan(
+                      text: TextSpan(
                         children: [
-                          TextSpan(
+                          const TextSpan(
                             text: "New to Guares? ",
                             style: TextStyle(
                               color: AppColors.textPrimary,
@@ -417,11 +419,20 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           TextSpan(
                             text: "Create Account",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: AppColors.primary,
                               fontWeight: FontWeight.bold,
                               fontSize: 15,
                             ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const SignUpView(),
+                                  ),
+                                );
+                              },
                           ),
                         ],
                       ),

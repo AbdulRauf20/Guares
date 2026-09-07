@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:habithub/Auth/Bloc/auth_bloc.dart';
+import 'package:habithub/Auth/Bloc/auth_event.dart';
+import 'package:habithub/Auth/Bloc/auth_state.dart';
+import 'package:habithub/Auth/services/theme/app_colors.dart';
+import 'package:habithub/Utils/dialog_helper.dart';
 import 'package:habithub/services/firestore_service.dart';
+import 'package:habithub/views/Authentication_Module/welcome_view.dart';
 import 'package:habithub/views/Home_Module/Profile/Bloc/profile_bloc.dart';
 import 'package:habithub/views/Home_Module/Profile/Bloc/profile_event.dart';
 import 'package:habithub/views/Home_Module/Profile/Bloc/profile_state.dart';
@@ -33,95 +39,122 @@ class _ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            const AppTopBar(),
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        if (state is Unauthenticated) {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (_) => const WelcomeView()),
+            (route) => false,
+          );
+        } else if (state is AuthFailure) {
+          DialogHelper.showError(
+            context,
+            title: "Logout Failed",
+            message: state.message,
+          );
+        }
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              const AppTopBar(),
 
-            Expanded(
-              child: BlocBuilder<ProfileBloc, ProfileState>(
-                builder: (context, state) {
-                  if (state is ProfileLoading) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
+              Expanded(
+                child: BlocBuilder<ProfileBloc, ProfileState>(
+                  builder: (context, state) {
+                    if (state is ProfileLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
 
-                  if (state is ProfileError) {
-                    return Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(24),
-                        child: Text(state.message, textAlign: TextAlign.center),
-                      ),
+                    if (state is ProfileError) {
+                      return Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(24),
+                          child: Text(
+                            state.message,
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
+                    }
+
+                    if (state is ProfileLoaded || state is ProfileUpdating) {
+                      final profile = state is ProfileLoaded
+                          ? state.profile
+                          : (state as ProfileUpdating).profile;
+
+                      return RefreshIndicator(
+                        onRefresh: () async {
+                          context.read<ProfileBloc>().add(
+                            const RefreshProfile(),
+                          );
+                        },
+                        child: ListView(
+                          padding: const EdgeInsets.all(16),
+                          children: [
+                            _ProfileHeader(
+                              name: profile.name,
+                              username: profile.username,
+                              bio: profile.bio,
+                              profileImageUrl: profile.profileImageUrl,
+                            ),
+
+                            const SizedBox(height: 24),
+
+                            _StatsSection(
+                              totalXP: profile.totalXP,
+                              level: profile.level,
+                              currentStreak: profile.currentStreak,
+                              completedTasks: profile.completedTasks,
+                              completedChallenges: profile.completedChallenges,
+                              leaderboardRank: profile.leaderboardRank,
+                            ),
+
+                            const SizedBox(height: 24),
+
+                            ActivityGrid(activities: profile.activities),
+                            const SizedBox(height: 24),
+
+                            const _SectionTitle(title: 'Analytics'),
+
+                            const SizedBox(height: 12),
+
+                            _AnalyticsPlaceholder(
+                              completedTasks: profile.completedTasks,
+                              completedChallenges: profile.completedChallenges,
+                              currentStreak: profile.currentStreak,
+                            ),
+
+                            const SizedBox(height: 24),
+
+                            const _SectionTitle(title: 'Badge'),
+
+                            const SizedBox(height: 12),
+
+                            _BadgePlaceholder(
+                              activeBadgeId: profile.activeBadgeId,
+                              ownedBadges: profile.ownedBadgeIds,
+                            ),
+
+                            const SizedBox(height: 24),
+
+                            const _LogoutButton(),
+
+                            const SizedBox(height: 24),
+                          ],
+                        ),
+                      );
+                    }
+
+                    return const Center(
+                      child: Text('No profile data available.'),
                     );
-                  }
-
-                  if (state is ProfileLoaded || state is ProfileUpdating) {
-                    final profile = state is ProfileLoaded
-                        ? state.profile
-                        : (state as ProfileUpdating).profile;
-
-                    return RefreshIndicator(
-                      onRefresh: () async {
-                        context.read<ProfileBloc>().add(const RefreshProfile());
-                      },
-                      child: ListView(
-                        padding: const EdgeInsets.all(16),
-                        children: [
-                          _ProfileHeader(
-                            name: profile.name,
-                            username: profile.username,
-                            bio: profile.bio,
-                            profileImageUrl: profile.profileImageUrl,
-                          ),
-
-                          const SizedBox(height: 24),
-
-                          _StatsSection(
-                            totalXP: profile.totalXP,
-                            level: profile.level,
-                            currentStreak: profile.currentStreak,
-                            completedTasks: profile.completedTasks,
-                            completedChallenges: profile.completedChallenges,
-                            leaderboardRank: profile.leaderboardRank,
-                          ),
-
-                          const SizedBox(height: 24),
-
-                          ActivityGrid(activities: profile.activities),
-                          const SizedBox(height: 24),
-
-                          const _SectionTitle(title: 'Analytics'),
-
-                          const SizedBox(height: 12),
-
-                          _AnalyticsPlaceholder(
-                            completedTasks: profile.completedTasks,
-                            completedChallenges: profile.completedChallenges,
-                            currentStreak: profile.currentStreak,
-                          ),
-
-                          const SizedBox(height: 24),
-
-                          const _SectionTitle(title: 'Badge'),
-
-                          const SizedBox(height: 12),
-
-                          _BadgePlaceholder(
-                            activeBadgeId: profile.activeBadgeId,
-                            ownedBadges: profile.ownedBadgeIds,
-                          ),
-                        ],
-                      ),
-                    );
-                  }
-
-                  return const Center(
-                    child: Text('No profile data available.'),
-                  );
-                },
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -196,6 +229,42 @@ class _ProfileHeader extends StatelessWidget {
           label: const Text('Edit Profile'),
         ),
       ],
+    );
+  }
+}
+
+class _LogoutButton extends StatelessWidget {
+  const _LogoutButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: OutlinedButton.icon(
+        onPressed: () {
+          final authBloc = context.read<AuthBloc>();
+
+          DialogHelper.showConfirmation(
+            context,
+            title: "Log Out",
+            message: "Are you sure you want to log out of your account?",
+            confirmText: "Log Out",
+            cancelText: "Cancel",
+            onConfirm: () {
+              authBloc.add(LogoutRequested());
+            },
+          );
+        },
+        icon: const Icon(Icons.logout, color: AppColors.error),
+        label: const Text('Log Out', style: TextStyle(color: AppColors.error)),
+        style: OutlinedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          side: const BorderSide(color: AppColors.error),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+        ),
+      ),
     );
   }
 }

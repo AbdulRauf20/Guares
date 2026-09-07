@@ -160,6 +160,9 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
 
       // Save in Firestore
       await _firestoreService.createUser(userModel);
+
+      if (!mounted) return;
+
       DialogHelper.hideLoading(context);
 
       context.read<UserBloc>().add(LoadUserRequested());
@@ -179,6 +182,8 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
         },
       );
     } catch (e) {
+      if (!mounted) return;
+
       DialogHelper.hideLoading(context);
 
       DialogHelper.showError(

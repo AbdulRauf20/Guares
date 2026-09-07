@@ -80,11 +80,15 @@ class FirestoreService {
   }
 
 Future<UserModel> getCurrentUser() async {
-  final uid = FirebaseAuth.instance.currentUser!.uid;
+  final currentUser = FirebaseAuth.instance.currentUser;
+
+  if (currentUser == null) {
+    throw Exception("No user is currently logged in.");
+  }
 
   final doc = await FirebaseFirestore.instance
       .collection('users')
-      .doc(uid)
+      .doc(currentUser.uid)
       .get();
 
   if (!doc.exists) {
