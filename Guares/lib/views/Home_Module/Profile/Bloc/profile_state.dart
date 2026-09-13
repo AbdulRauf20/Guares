@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:habithub/models/profile_activity_model.dart';
-import 'package:habithub/models/profile_model.dart';
+import 'package:guares/models/profile_activity_model.dart';
+import 'package:guares/models/profile_model.dart';
 
 abstract class ProfileState extends Equatable {
   const ProfileState();

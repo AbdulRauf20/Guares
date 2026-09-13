@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
-import 'package:habithub/Utils/dialog_helper.dart';
-import 'package:habithub/views/Authentication_Module/login_view.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
+import 'package:guares/Utils/dialog_helper.dart';
+import 'package:guares/views/Authentication_Module/login_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ResetEmailSentView extends StatefulWidget {

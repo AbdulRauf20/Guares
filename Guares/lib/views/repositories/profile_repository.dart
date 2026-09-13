@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:habithub/models/profile_activity_model.dart';
+import 'package:guares/models/profile_activity_model.dart';
 
-import 'package:habithub/models/profile_model.dart';
-import 'package:habithub/services/firestore_service.dart';
+import 'package:guares/models/profile_model.dart';
+import 'package:guares/services/firestore_service.dart';
 
 class ProfileRepository {
   final FirestoreService _firestoreService;

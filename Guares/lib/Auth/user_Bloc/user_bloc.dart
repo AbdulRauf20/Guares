@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habithub/Auth/services/firestore_service.dart';
+import 'package:guares/Auth/services/firestore_service.dart';
 
 import 'user_event.dart';
 import 'user_state.dart';

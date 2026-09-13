@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:habithub/models/%20home_model.dart';
-import 'package:habithub/models/challenge_preview_model.dart';
+import 'package:guares/models/%20home_model.dart';
+import 'package:guares/models/challenge_preview_model.dart';
 
 abstract class HomeState extends Equatable {
   const HomeState();

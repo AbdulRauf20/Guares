@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:habithub/models/profile_activity_model.dart';
+import 'package:guares/models/profile_activity_model.dart';
 
 class ActivityGrid extends StatelessWidget {
   final List<ProfileActivityModel> activities;

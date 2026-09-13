@@ -2,18 +2,18 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habithub/Auth/models/user_model.dart';
-import 'package:habithub/Auth/services/firebase_storage.dart';
-import 'package:habithub/Auth/user_Bloc/user_bloc.dart';
-import 'package:habithub/Auth/user_Bloc/user_event.dart';
-import 'package:habithub/Utils/dialog_helper.dart';
-import 'package:habithub/views/main_navigation_view.dart';
+import 'package:guares/Auth/models/user_model.dart';
+import 'package:guares/Auth/services/firebase_storage.dart';
+import 'package:guares/Auth/user_Bloc/user_bloc.dart';
+import 'package:guares/Auth/user_Bloc/user_event.dart';
+import 'package:guares/Utils/dialog_helper.dart';
+import 'package:guares/views/main_navigation_view.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:habithub/Auth/services/firestore_service.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
-import 'package:habithub/views/Authentication_Module/verify_email_view.dart';
+import 'package:guares/Auth/services/firestore_service.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
+import 'package:guares/views/Authentication_Module/verify_email_view.dart';
 
 class CompleteProfileView extends StatefulWidget {
   const CompleteProfileView({super.key});
@@ -173,8 +173,6 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
         message: "Your profile has been created successfully.",
         buttonText: "Start My Journey",
         onPressed: () {
-          Navigator.pop(context);
-
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (_) => const MainNavigationView()),

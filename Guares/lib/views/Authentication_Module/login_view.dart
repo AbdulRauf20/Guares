@@ -1,19 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habithub/Auth/Bloc/auth_bloc.dart';
-import 'package:habithub/Auth/Bloc/auth_event.dart';
-import 'package:habithub/Auth/Bloc/auth_state.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
-import 'package:habithub/Auth/user_Bloc/user_bloc.dart';
-import 'package:habithub/Auth/user_Bloc/user_event.dart';
-import 'package:habithub/Utils/dialog_helper.dart';
-import 'package:habithub/views/Authentication_Module/Forgot_password_view.dart';
-import 'package:habithub/views/Authentication_Module/complete_profile_view.dart';
-import 'package:habithub/views/Authentication_Module/signup_view.dart';
-import 'package:habithub/views/Authentication_Module/verify_email_view.dart';
-import 'package:habithub/views/Authentication_Module/welcome_view.dart';
-import 'package:habithub/views/main_navigation_view.dart';
+import 'package:guares/Auth/Bloc/auth_bloc.dart';
+import 'package:guares/Auth/Bloc/auth_event.dart';
+import 'package:guares/Auth/Bloc/auth_state.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
+import 'package:guares/Auth/user_Bloc/user_bloc.dart';
+import 'package:guares/Auth/user_Bloc/user_event.dart';
+import 'package:guares/Utils/dialog_helper.dart';
+import 'package:guares/views/Authentication_Module/Forgot_password_view.dart';
+import 'package:guares/views/Authentication_Module/complete_profile_view.dart';
+import 'package:guares/views/Authentication_Module/signup_view.dart';
+import 'package:guares/views/Authentication_Module/verify_email_view.dart';
+import 'package:guares/views/Authentication_Module/welcome_view.dart';
+import 'package:guares/views/main_navigation_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -397,11 +397,17 @@ class _LoginViewState extends State<LoginView> {
                       ),
 
                       socialButton("assets/apple.png", () {
-                        context.read<AuthBloc>().add(AppleSignInRequested());
+                        DialogHelper.showComingSoon(
+                          context,
+                          feature: "Sign in with Apple",
+                        );
                       }),
 
                       socialButton("assets/facebook.png", () {
-                        context.read<AuthBloc>().add(FacebookSignInRequested());
+                        DialogHelper.showComingSoon(
+                          context,
+                          feature: "Sign in with Facebook",
+                        );
                       }),
                     ],
                   ),

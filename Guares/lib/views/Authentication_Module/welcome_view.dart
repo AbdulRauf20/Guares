@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
-import 'package:habithub/views/Authentication_Module/login_view.dart';
-import 'package:habithub/views/Authentication_Module/signup_view.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
+import 'package:guares/views/Authentication_Module/login_view.dart';
+import 'package:guares/views/Authentication_Module/signup_view.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});

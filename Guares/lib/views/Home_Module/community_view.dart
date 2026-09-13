@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/models/community_challenge_model.dart';
-import 'package:habithub/services/firestore_service.dart';
-import 'package:habithub/views/Home_Module/Community/Bloc/community_bloc.dart';
-import 'package:habithub/views/Home_Module/Community/Bloc/community_event.dart';
-import 'package:habithub/views/Home_Module/Community/Bloc/community_state.dart';
-import 'package:habithub/views/Home_Module/Community/community_challenge_details_view.dart';
-import 'package:habithub/views/Home_Module/widgets/app_top_bar.dart';
-import 'package:habithub/views/repositories/community_repository.dart';
+import 'package:guares/models/community_challenge_model.dart';
+import 'package:guares/services/firestore_service.dart';
+import 'package:guares/views/Home_Module/Community/Bloc/community_bloc.dart';
+import 'package:guares/views/Home_Module/Community/Bloc/community_event.dart';
+import 'package:guares/views/Home_Module/Community/Bloc/community_state.dart';
+import 'package:guares/views/Home_Module/Community/community_challenge_details_view.dart';
+import 'package:guares/views/Home_Module/widgets/app_top_bar.dart';
+import 'package:guares/views/repositories/community_repository.dart';
 
 class CommunityView extends StatelessWidget {
   const CommunityView({super.key});

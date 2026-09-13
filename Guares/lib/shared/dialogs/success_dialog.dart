@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
 
 class SuccessDialog extends StatelessWidget {
   final String title;

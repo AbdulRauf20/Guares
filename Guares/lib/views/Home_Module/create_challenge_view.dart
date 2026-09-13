@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/models/challenge_task_model.dart';
-import 'package:habithub/services/firestore_service.dart';
-import 'package:habithub/views/Home_Module/CreateChallenge/Bloc/create_challenge_bloc.dart';
-import 'package:habithub/views/Home_Module/CreateChallenge/Bloc/create_challenge_event.dart';
-import 'package:habithub/views/Home_Module/CreateChallenge/Bloc/create_challenge_state.dart';
-import 'package:habithub/views/Home_Module/widgets/app_top_bar.dart';
-import 'package:habithub/views/repositories/create_challenge_repository.dart';
+import 'package:guares/models/challenge_task_model.dart';
+import 'package:guares/services/firestore_service.dart';
+import 'package:guares/views/Home_Module/CreateChallenge/Bloc/create_challenge_bloc.dart';
+import 'package:guares/views/Home_Module/CreateChallenge/Bloc/create_challenge_event.dart';
+import 'package:guares/views/Home_Module/CreateChallenge/Bloc/create_challenge_state.dart';
+import 'package:guares/views/Home_Module/widgets/app_top_bar.dart';
+import 'package:guares/views/repositories/create_challenge_repository.dart';
 
 class CreateChallengeView extends StatelessWidget {
   const CreateChallengeView({super.key});

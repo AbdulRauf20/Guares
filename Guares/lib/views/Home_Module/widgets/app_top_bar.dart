@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/Auth/user_Bloc/user_bloc.dart';
-import 'package:habithub/Auth/user_Bloc/user_state.dart';
+import 'package:guares/Auth/user_Bloc/user_bloc.dart';
+import 'package:guares/Auth/user_Bloc/user_state.dart';
 
 import '../Bloc/bottom_nav_bloc.dart';
 import '../Bloc/bottom_nav_state.dart';

@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
-import 'package:habithub/models/%20home_model.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
+import 'package:guares/models/%20home_model.dart';
 
 class DashboardCard extends StatelessWidget {
   final HomeModel home;

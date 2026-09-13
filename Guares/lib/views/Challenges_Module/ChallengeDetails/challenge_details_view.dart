@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:habithub/models/challenge_preview_model.dart';
-import 'package:habithub/views/Home_Module/widgets/app_top_bar.dart';
+import 'package:guares/models/challenge_preview_model.dart';
+import 'package:guares/views/Home_Module/widgets/app_top_bar.dart';
 
 class ChallengeDetailsView extends StatelessWidget {
   static const ChallengePreviewModel defaultChallenge = ChallengePreviewModel(

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/services/firestore_service.dart';
+import 'package:guares/services/firestore_service.dart';
 
-import 'package:habithub/views/Home_Module/Home/Bloc/home_bloc.dart';
-import 'package:habithub/views/Home_Module/Home/Bloc/home_event.dart';
-import 'package:habithub/views/Home_Module/Home/Bloc/home_state.dart';
+import 'package:guares/views/Home_Module/Home/Bloc/home_bloc.dart';
+import 'package:guares/views/Home_Module/Home/Bloc/home_event.dart';
+import 'package:guares/views/Home_Module/Home/Bloc/home_state.dart';
 
-import 'package:habithub/views/Home_Module/Home/home_widgets/dashboard_card.dart';
-import 'package:habithub/views/Home_Module/Home/home_widgets/joined_challenges_section.dart';
-import 'package:habithub/views/Home_Module/widgets/app_top_bar.dart';
-import 'package:habithub/views/repositories/challenge_repository.dart';
-import 'package:habithub/views/repositories/home_repository.dart';
+import 'package:guares/views/Home_Module/Home/home_widgets/dashboard_card.dart';
+import 'package:guares/views/Home_Module/Home/home_widgets/joined_challenges_section.dart';
+import 'package:guares/views/Home_Module/widgets/app_top_bar.dart';
+import 'package:guares/views/repositories/challenge_repository.dart';
+import 'package:guares/views/repositories/home_repository.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

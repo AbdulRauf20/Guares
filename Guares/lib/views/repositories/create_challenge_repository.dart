@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:habithub/models/challenge_model.dart';
-import 'package:habithub/models/challenge_task_model.dart';
-import 'package:habithub/services/firestore_service.dart';
+import 'package:guares/models/challenge_model.dart';
+import 'package:guares/models/challenge_task_model.dart';
+import 'package:guares/services/firestore_service.dart';
 
 class CreateChallengeRepository {
   final FirestoreService _firestoreService;

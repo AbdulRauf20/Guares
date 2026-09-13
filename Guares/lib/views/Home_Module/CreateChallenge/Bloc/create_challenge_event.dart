@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:habithub/models/challenge_task_model.dart';
+import 'package:guares/models/challenge_task_model.dart';
 
 abstract class CreateChallengeEvent extends Equatable {
   const CreateChallengeEvent();

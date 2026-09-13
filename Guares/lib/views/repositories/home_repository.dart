@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:habithub/models/%20home_model.dart';
-import 'package:habithub/services/firestore_service.dart';
-import 'package:habithub/views/repositories/challenge_repository.dart';
+import 'package:guares/models/%20home_model.dart';
+import 'package:guares/services/firestore_service.dart';
+import 'package:guares/views/repositories/challenge_repository.dart';
 
 class HomeRepository {
   final FirestoreService _firestoreService;

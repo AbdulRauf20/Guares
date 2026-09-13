@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/views/repositories/create_challenge_repository.dart';
+import 'package:guares/views/repositories/create_challenge_repository.dart';
 
 import 'create_challenge_event.dart';
 import 'create_challenge_state.dart';

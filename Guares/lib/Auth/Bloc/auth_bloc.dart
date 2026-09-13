@@ -174,6 +174,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       emit(Authenticated(emailVerified: true, profileCompleted: true));
     } catch (e) {
+      // If the user simply backed out of the Google dialog, don't show an error.
+      if (e.toString().toLowerCase().contains("cancel")) {
+        emit(Unauthenticated());
+        return;
+      }
+
       emit(AuthFailure(message: e.toString()));
     }
   }

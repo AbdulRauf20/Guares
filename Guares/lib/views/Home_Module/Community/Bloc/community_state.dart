@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:habithub/models/community_challenge_model.dart';
+import 'package:guares/models/community_challenge_model.dart';
 
 abstract class CommunityState extends Equatable {
   const CommunityState();

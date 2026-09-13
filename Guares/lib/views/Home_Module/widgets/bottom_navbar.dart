@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
 import '../Bloc/bottom_nav_bloc.dart';
 import '../Bloc/bottom_nav_event.dart';
 import '../Bloc/bottom_nav_state.dart';
 
-class HabitHubBottomNavBar extends StatelessWidget {
-  const HabitHubBottomNavBar({super.key});
+class GuaresBottomNavBar extends StatelessWidget {
+  const GuaresBottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {

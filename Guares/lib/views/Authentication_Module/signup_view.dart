@@ -1,14 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habithub/Auth/Bloc/auth_bloc.dart';
-import 'package:habithub/Auth/Bloc/auth_event.dart';
-import 'package:habithub/Auth/Bloc/auth_state.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
-import 'package:habithub/Utils/dialog_helper.dart';
-import 'package:habithub/views/Authentication_Module/login_view.dart';
-import 'package:habithub/views/Authentication_Module/verify_email_view.dart';
-import 'package:habithub/views/Authentication_Module/welcome_view.dart';
+import 'package:guares/Auth/Bloc/auth_bloc.dart';
+import 'package:guares/Auth/Bloc/auth_event.dart';
+import 'package:guares/Auth/Bloc/auth_state.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
+import 'package:guares/Utils/dialog_helper.dart';
+import 'package:guares/views/Authentication_Module/complete_profile_view.dart';
+import 'package:guares/views/Authentication_Module/login_view.dart';
+import 'package:guares/views/Authentication_Module/verify_email_view.dart';
+import 'package:guares/views/Authentication_Module/welcome_view.dart';
+import 'package:guares/views/main_navigation_view.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -117,13 +119,31 @@ class _SignUpViewState extends State<SignUpView> {
                 "We've sent a verification email. Please verify your email to continue.",
             buttonText: "Continue",
             onPressed: () {
-              Navigator.pop(context);
-
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (_) => const VerifyEmailView()),
               );
             },
+          );
+        }
+
+        // Social sign-in (e.g. Google) for a new user -> finish profile setup.
+        if (state is ProfileIncomplete) {
+          DialogHelper.hideLoading(context);
+
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (_) => const CompleteProfileView()),
+          );
+        }
+
+        // Social sign-in for an existing, fully set up user -> go to app.
+        if (state is Authenticated) {
+          DialogHelper.hideLoading(context);
+
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (_) => const MainNavigationView()),
           );
         }
       },
@@ -520,11 +540,17 @@ class _SignUpViewState extends State<SignUpView> {
                       ),
 
                       socialButton("assets/apple.png", () {
-                        context.read<AuthBloc>().add(AppleSignInRequested());
+                        DialogHelper.showComingSoon(
+                          context,
+                          feature: "Sign up with Apple",
+                        );
                       }),
 
                       socialButton("assets/facebook.png", () {
-                        context.read<AuthBloc>().add(FacebookSignInRequested());
+                        DialogHelper.showComingSoon(
+                          context,
+                          feature: "Sign up with Facebook",
+                        );
                       }),
                     ],
                   ),

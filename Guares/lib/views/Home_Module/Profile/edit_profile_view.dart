@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/views/Home_Module/Profile/Bloc/profile_bloc.dart';
-import 'package:habithub/views/Home_Module/Profile/Bloc/profile_event.dart';
-import 'package:habithub/views/Home_Module/Profile/Bloc/profile_state.dart';
+import 'package:guares/views/Home_Module/Profile/Bloc/profile_bloc.dart';
+import 'package:guares/views/Home_Module/Profile/Bloc/profile_event.dart';
+import 'package:guares/views/Home_Module/Profile/Bloc/profile_state.dart';
 
 class EditProfileView extends StatefulWidget {
   final String name;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/models/community_challenge_model.dart';
-import 'package:habithub/views/Home_Module/Community/Bloc/community_bloc.dart';
-import 'package:habithub/views/Home_Module/Community/Bloc/community_event.dart';
+import 'package:guares/models/community_challenge_model.dart';
+import 'package:guares/views/Home_Module/Community/Bloc/community_bloc.dart';
+import 'package:guares/views/Home_Module/Community/Bloc/community_event.dart';
 
 class CommunityChallengeDetailsView extends StatelessWidget {
   final CommunityChallengeModel challenge;

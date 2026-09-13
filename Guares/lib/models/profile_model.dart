@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:habithub/models/profile_activity_model.dart';
+import 'package:guares/models/profile_activity_model.dart';
 
 class ProfileModel extends Equatable {
   final String id;

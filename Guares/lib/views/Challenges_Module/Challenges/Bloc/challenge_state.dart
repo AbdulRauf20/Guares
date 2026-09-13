@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:habithub/models/challenge_preview_model.dart';
+import 'package:guares/models/challenge_preview_model.dart';
 
 abstract class ChallengeState extends Equatable {
   const ChallengeState();

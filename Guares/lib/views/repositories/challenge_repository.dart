@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:habithub/models/challenge_model.dart';
+import 'package:guares/models/challenge_model.dart';
 
-import 'package:habithub/models/challenge_preview_model.dart';
-import 'package:habithub/models/today_task_preview_model.dart';
-import 'package:habithub/services/firestore_service.dart';
-import 'package:habithub/views/repositories/profile_repository.dart';
+import 'package:guares/models/challenge_preview_model.dart';
+import 'package:guares/models/today_task_preview_model.dart';
+import 'package:guares/services/firestore_service.dart';
+import 'package:guares/views/repositories/profile_repository.dart';
 
 class ChallengeRepository {
   final FirestoreService _firestoreService;

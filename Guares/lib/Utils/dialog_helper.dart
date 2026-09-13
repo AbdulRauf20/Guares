@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habithub/shared/dialogs/confirmation_dialog.dart';
-import 'package:habithub/shared/dialogs/error_dialog.dart';
-import 'package:habithub/shared/dialogs/loading_dialog.dart';
-import 'package:habithub/shared/dialogs/success_dialog.dart';
+import 'package:guares/shared/dialogs/confirmation_dialog.dart';
+import 'package:guares/shared/dialogs/error_dialog.dart';
+import 'package:guares/shared/dialogs/loading_dialog.dart';
+import 'package:guares/shared/dialogs/success_dialog.dart';
 
 class DialogHelper {
   DialogHelper._();
@@ -53,6 +53,25 @@ class DialogHelper {
   }
 
   // ----------------------------
+  // Coming Soon Dialog
+  // ----------------------------
+  static Future<void> showComingSoon(
+    BuildContext context, {
+    String feature = "This feature",
+  }) {
+    return showDialog(
+      context: context,
+      builder: (_) => SuccessDialog(
+        title: "Coming Soon",
+        description:
+            "$feature isn't available just yet. We're working on it and it'll be ready soon!",
+        buttonText: "Got it",
+        icon: Icons.rocket_launch_rounded,
+      ),
+    );
+  }
+
+  // ----------------------------
   // Error Dialog
   // ----------------------------
   static Future<void> showError(
@@ -61,11 +80,17 @@ class DialogHelper {
     required String message,
     String buttonText = "OK",
   }) {
+    // Strip the internal "Exception: " prefix so users see a clean message.
+    final cleanMessage = message.replaceFirst(
+      RegExp(r'^(Exception:\s*)+'),
+      '',
+    );
+
     return showDialog(
       context: context,
       builder: (_) => ErrorDialog(
         title: title,
-        description: message,
+        description: cleanMessage,
         buttonText: buttonText,
       ),
     );

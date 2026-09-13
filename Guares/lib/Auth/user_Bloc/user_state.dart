@@ -1,4 +1,4 @@
-import 'package:habithub/Auth/models/user_model.dart';
+import 'package:guares/Auth/models/user_model.dart';
 
 abstract class UserState {}
 

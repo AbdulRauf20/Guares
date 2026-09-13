@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habithub/models/challenge_preview_model.dart';
+import 'package:guares/models/challenge_preview_model.dart';
 
 class ChallengeCard extends StatelessWidget {
   final ChallengePreviewModel challenge;

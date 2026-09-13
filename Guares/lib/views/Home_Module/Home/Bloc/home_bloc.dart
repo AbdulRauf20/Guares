@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/models/%20home_model.dart';
-import 'package:habithub/views/repositories/challenge_repository.dart';
-import 'package:habithub/views/repositories/home_repository.dart';
+import 'package:guares/models/%20home_model.dart';
+import 'package:guares/views/repositories/challenge_repository.dart';
+import 'package:guares/views/repositories/home_repository.dart';
 
 import 'home_event.dart';
 import 'home_state.dart';

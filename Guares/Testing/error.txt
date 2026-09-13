@@ -1,5 +1,5 @@
 ===========================
-🔥 HABITHUB TODO (BEFORE HOME MODULE)
+🔥 GUARES TODO (BEFORE HOME MODULE)
 ===========================
 
 [ ] Fix UserModel constructor

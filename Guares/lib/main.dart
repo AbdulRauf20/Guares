@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habithub/Auth/Bloc/auth_bloc.dart';
-import 'package:habithub/Auth/services/auth_service.dart';
-import 'package:habithub/Auth/user_Bloc/user_bloc.dart';
-import 'package:habithub/firebase_options.dart';
-import 'package:habithub/views/splash_screen_view.dart';
+import 'package:guares/Auth/Bloc/auth_bloc.dart';
+import 'package:guares/Auth/services/auth_service.dart';
+import 'package:guares/Auth/user_Bloc/user_bloc.dart';
+import 'package:guares/firebase_options.dart';
+import 'package:guares/views/splash_screen_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

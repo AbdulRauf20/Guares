@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habithub/Auth/Bloc/auth_bloc.dart' show AuthBloc;
-import 'package:habithub/Auth/Bloc/auth_event.dart';
-import 'package:habithub/Auth/Bloc/auth_state.dart';
-import 'package:habithub/Auth/services/theme/app_colors.dart';
-import 'package:habithub/Utils/dialog_helper.dart';
-import 'package:habithub/views/Authentication_Module/complete_profile_view.dart';
-import 'package:habithub/views/Authentication_Module/signup_view.dart';
+import 'package:guares/Auth/Bloc/auth_bloc.dart' show AuthBloc;
+import 'package:guares/Auth/Bloc/auth_event.dart';
+import 'package:guares/Auth/Bloc/auth_state.dart';
+import 'package:guares/Auth/services/theme/app_colors.dart';
+import 'package:guares/Utils/dialog_helper.dart';
+import 'package:guares/views/Authentication_Module/complete_profile_view.dart';
+import 'package:guares/views/Authentication_Module/signup_view.dart';
 
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({super.key});
@@ -42,10 +42,13 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
             title: "Email verification successful",
             message:
                 "Your email has been verified successfully. You can now proceed to complete your profile.",
-          );
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (_) => const CompleteProfileView()),
+            buttonText: "Complete Profile",
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const CompleteProfileView()),
+              );
+            },
           );
         }
       },

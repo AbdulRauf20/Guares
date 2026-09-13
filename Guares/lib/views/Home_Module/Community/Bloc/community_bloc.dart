@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:habithub/views/repositories/community_repository.dart';
+import 'package:guares/views/repositories/community_repository.dart';
 
 import 'community_event.dart';
 import 'community_state.dart';

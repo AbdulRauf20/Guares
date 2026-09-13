@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:habithub/models/community_challenge_model.dart';
-import 'package:habithub/services/firestore_service.dart';
+import 'package:guares/models/community_challenge_model.dart';
+import 'package:guares/services/firestore_service.dart';
 
 class CommunityRepository {
   final FirestoreService _firestoreService;

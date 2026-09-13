@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:habithub/models/challenge_preview_model.dart';
-import 'package:habithub/models/today_task_preview_model.dart';
+import 'package:guares/models/challenge_preview_model.dart';
+import 'package:guares/models/today_task_preview_model.dart';
 
 class JoinedChallengeCard extends StatefulWidget {
   final ChallengePreviewModel challenge;
